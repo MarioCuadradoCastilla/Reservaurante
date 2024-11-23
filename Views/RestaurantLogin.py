@@ -1,4 +1,4 @@
-# inicioSesionCliente.py
+# RestaurantLogin.py
 import customtkinter
 
 def open_restaurant_login_window(event=None):
@@ -6,7 +6,7 @@ def open_restaurant_login_window(event=None):
     registration_window.title("Registro")
     registration_window.geometry("300x200")
     
-    label = customtkinter.CTkLabel(master=registration_window, text="Esta es la ventana de inicio de sesion del restaurante.")
+    label = customtkinter.CTkLabel(master=registration_window, text="Esta es la ventana de inicio de sesion del restaurant.")
     label.pack(pady=20)
 
     registration_window.grab_set()
