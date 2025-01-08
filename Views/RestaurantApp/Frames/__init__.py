@@ -1,0 +1,4 @@
+from Views.RestaurantApp.Frames.RestauranInfoFrame import InfoFrame
+from Views.RestaurantApp.Frames.RestaurantImageFrame import ImagesFrame
+from Views.RestaurantApp.Frames.RestaurnatReviewsFrame import ReviewsFrame
+from Views.RestaurantApp.Frames.RestaurantBookingsFrame import BookingsFrame

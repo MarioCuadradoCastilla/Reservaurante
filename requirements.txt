@@ -1,0 +1,7 @@
+validators
+customtkinter
+Pillow
+tkcalendar
+ttkwidgets
+
+
