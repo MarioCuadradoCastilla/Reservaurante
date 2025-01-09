@@ -26,7 +26,6 @@ class RestaurantFrame(ctk.CTkFrame):
         details_window.grid_columnconfigure(0, weight=0)
         details_window.grid_columnconfigure(1, weight=1)
 
-        # Image navigation frame
         image_navigation_frame = ctk.CTkFrame(details_window, fg_color="#222222", corner_radius=10)
         image_navigation_frame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
         image_navigation_frame.grid_columnconfigure(1, weight=1)

@@ -194,7 +194,10 @@ class InfoFrame(ctk.CTkFrame):
 
     def _save_field(self, field_name):
         new_value = self.entries[field_name].get()
-        validation_errors = self._validate_field(field_name, new_value)
+        if field_name == 'name' and new_value == original_restaurant_data['name']:
+            validation_errors = []
+        else:
+            validation_errors = self._validate_field(field_name, new_value)
 
         if validation_errors:
             BasicController.show_errors(validation_errors)
@@ -248,9 +251,6 @@ class InfoFrame(ctk.CTkFrame):
 
     def save_description(self):
         new_description = self.description_entry.get("1.0", "end-1c")
-        restaurant = self.db.obtain_restaurant(self.CIF)
-        restaurant.description = new_description
-        self.db.update_restaurant(restaurant)
 
         self.description_entry.delete("1.0", "end")
         self.description_entry.insert("1.0", new_description)

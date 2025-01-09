@@ -88,6 +88,7 @@ class BasicController:
             return icon_path
         else:
             print(f"Error: El archivo {icon_path} no se encontró.")
+
     @staticmethod
     def obtain_script_dir():
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -96,13 +97,12 @@ class BasicController:
     @staticmethod
     def cancel_all_events(window):
         try:
-            # Obtener todos los eventos pendientes programados con 'after'
             events = window.tk.call('after', 'info')
             if isinstance(events, tuple):
                 events = [str(event) for event in events]
             for event in events:
                 try:
-                    window.after_cancel(event)  # Cancelarlos uno por uno
+                    window.after_cancel(event)
                 except TclError as e:
                     error_msg = str(e)
                     if "invalid command name" in error_msg:
@@ -112,12 +112,5 @@ class BasicController:
         except Exception as e:
             print(f"Eventos que no pueden ser cancelados:")
 
-    @staticmethod
-    def cancel_after_events(window):
-        for after_id in window.tk.eval('after info').split():
-            try:
-                window.after_cancel(after_id)
-            except:
-                pass
 
 

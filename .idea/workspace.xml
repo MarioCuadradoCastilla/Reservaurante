@@ -4,55 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b09e7b45-d70f-46ce-9eb4-6974a7151c75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Reservaurante.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/BasicController.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/DataBaseController.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Demo/DemoData.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Demo/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/Municipality/Municipalities.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Booking.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Restaurant.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/Review.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Utils/Time.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/ClientApp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/Frames/AddBookingFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/Frames/AddReviewFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/Frames/ClientBookingFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/Frames/ClientInfoFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/Frames/ClientRestaurantsFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/Frames/ClientReviewsFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/Frames/RestaurantFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/Frames/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientApp/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientLogin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ClientRegistration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/Inicio.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestauranInfoFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestaurantBookingsFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestaurantImageFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestaurnatReviewsFrame.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/RestaurantApp/Frames/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/RestaurantApp/RestaurantApp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/RestaurantApp/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/RestaurantLogin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/RestaurantRegistration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/icono.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/icono2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="b09e7b45-d70f-46ce-9eb4-6974a7151c75" name="Changes" comment="version completa">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/BasicController.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/BasicController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/DataBaseController.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/DataBaseController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/DataBase/Reservaurante.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DataBase/Reservaurante.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/ClientApp/Frames/AddBookingFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ClientApp/Frames/AddBookingFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/ClientLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ClientLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestauranInfoFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestauranInfoFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestaurantImageFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestaurantImageFrame.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +80,7 @@
       <recent name="C:\Users\Mario\PycharmProjects\Reservaurante\img" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.RestaurantApp (1)">
+  <component name="RunManager" selected="Python.main">
     <configuration name="ClientApp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Reservaurante" />
       <option name="ENV_FILES" value="" />
@@ -238,9 +198,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.RestaurantApp (1)" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.ClientApp" />
+        <item itemvalue="Python.RestaurantApp (1)" />
         <item itemvalue="Python.Inicio" />
         <item itemvalue="Python.ClientLogin" />
       </list>
@@ -294,12 +254,34 @@
       <workItem from="1736081586589" duration="8277000" />
       <workItem from="1736109174546" duration="4891000" />
       <workItem from="1736244631333" duration="26536000" />
-      <workItem from="1736336229264" duration="10036000" />
+      <workItem from="1736336229264" duration="27852000" />
+      <workItem from="1736418866615" duration="7627000" />
     </task>
+    <task id="LOCAL-00001" summary="version completa">
+      <option name="closed" value="true" />
+      <created>1736357261670</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1736357261670</updated>
+    </task>
+    <task id="LOCAL-00002" summary="version completa">
+      <option name="closed" value="true" />
+      <created>1736357285685</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1736357285685</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="version completa" />
+    <option name="LAST_COMMIT_MESSAGE" value="version completa" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -326,11 +308,11 @@
     <SUITE FILE_PATH="coverage/Reservaurante$BasicController.coverage" NAME="BasicController Coverage Results" MODIFIED="1733587134921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Controllers" />
     <SUITE FILE_PATH="coverage/Reservaurante$ClientRegistration.coverage" NAME="ClientRegistration Coverage Results" MODIFIED="1734104648586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
     <SUITE FILE_PATH="coverage/Reservaurante$RestaurantApp.coverage" NAME="RestaurantApp Coverage Results" MODIFIED="1735818070801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
-    <SUITE FILE_PATH="coverage/Reservaurante$Inicio.coverage" NAME="Inicio Coverage Results" MODIFIED="1736337460737" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
+    <SUITE FILE_PATH="coverage/Reservaurante$Inicio.coverage" NAME="Inicio Coverage Results" MODIFIED="1736366898330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
     <SUITE FILE_PATH="coverage/Reservaurante$RestaurantRegistration.coverage" NAME="RestaurantRegistration Coverage Results" MODIFIED="1734878429485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
-    <SUITE FILE_PATH="coverage/Reservaurante$main.coverage" NAME="main Coverage Results" MODIFIED="1736348788933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Reservaurante$ClientApp.coverage" NAME="ClientApp Coverage Results" MODIFIED="1736338877420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/ClientApp" />
-    <SUITE FILE_PATH="coverage/Reservaurante$RestaurantApp__1_.coverage" NAME="RestaurantApp (1) Coverage Results" MODIFIED="1736351558890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/RestaurantApp" />
+    <SUITE FILE_PATH="coverage/Reservaurante$main.coverage" NAME="main Coverage Results" MODIFIED="1736433632697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Reservaurante$RestaurantApp__1_.coverage" NAME="RestaurantApp (1) Coverage Results" MODIFIED="1736431094906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/RestaurantApp" />
+    <SUITE FILE_PATH="coverage/Reservaurante$ClientApp.coverage" NAME="ClientApp Coverage Results" MODIFIED="1736432465836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/ClientApp" />
     <SUITE FILE_PATH="coverage/Reservaurante$ClientRestaurantsFrame.coverage" NAME="ClientRestaurantsFrame Coverage Results" MODIFIED="1735838440323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/ClientApp" />
     <SUITE FILE_PATH="coverage/Reservaurante$RestaurantLogin.coverage" NAME="RestaurantLogin Coverage Results" MODIFIED="1734878436417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
     <SUITE FILE_PATH="coverage/Reservaurante$ClientLogin.coverage" NAME="ClientLogin Coverage Results" MODIFIED="1736258604554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />

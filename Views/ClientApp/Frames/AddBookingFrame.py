@@ -98,7 +98,7 @@ class BookingWindow:
 
             self.db.add_booking(booking)
             bc.usage_window("Exito", "¡Reserva realizada con éxito!")
-            self.window.after(2000, self.window.destroy)
+            self.window.after(1000, self.window.destroy)
 
             if self.bookings_frame:
                 self.bookings_frame.load_bookings()

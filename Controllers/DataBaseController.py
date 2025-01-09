@@ -19,7 +19,7 @@ class DataBaseController:
         self.create_tables_if_not_exists()
         self.path = db_path
 
-        # Create images directory
+
         self.images_dir = os.path.join(os.path.dirname(db_path), "restaurant_images")
         os.makedirs(self.images_dir, exist_ok=True)
 
@@ -124,29 +124,25 @@ class DataBaseController:
         Review.id = self.cursor.lastrowid
 
     def add_restaurant_image(self, restaurant_cif,image_path):
-        # Generar un nombre de archivo único
+
         _, ext = os.path.splitext(image_path)
         new_filename = f"{uuid.uuid4().hex}_{int(datetime.now().timestamp())}{ext}"
 
-        # Crear la carpeta si no existe
         restaurant_dir = os.path.join(self.images_dir, restaurant_cif)
         os.makedirs(restaurant_dir, exist_ok=True)
 
-        # Copiar la imagen al directorio correspondiente
         destination = os.path.join(restaurant_dir, new_filename)
         shutil.copy2(image_path, destination)
 
-        # Guardar información de la imagen en la base de datos
         self.cursor.execute('''
             INSERT INTO RestaurantImages (restaurantCIF, filename, upload_date)
             VALUES (?, ?, ?)
         ''', (restaurant_cif, new_filename, datetime.now()))
 
         self.connection.commit()
-        return new_filename  # Devuelve el nombre del archivo guardado
+        return new_filename
 
     def delete_restaurant_image(self, restaurant_cif, filename):
-        # Eliminar la referencia en la base de datos
         self.cursor.execute('''
             DELETE FROM RestaurantImages
             WHERE restaurantCIF = ? AND filename = ?
@@ -181,24 +177,6 @@ class DataBaseController:
         if result:
             return result[0]  # Devuelve el primer elemento de la tupla, que debería ser el nombre de usuario
         return None  # Devuelve None si no se encuentra el usuario
-
-    def save_restaurant_image(self, restaurant_cif, image_path):
-        # Create Restaurant instance to handle image naming
-        restaurant = Restaurant(restaurant_cif, "", "", "", "", 0, 0)
-
-        # Generate new filename and save image
-        new_filename = restaurant.add_image(image_path)
-        destination = os.path.join(self.images_dir, new_filename)
-        shutil.copy2(image_path, destination)
-
-        # Store image information in database
-        self.cursor.execute('''
-            INSERT INTO RestaurantImages (restaurantCIF, filename, upload_date)
-            VALUES (?, ?, ?)
-        ''', (restaurant_cif, new_filename, datetime.now()))
-
-        self.connection.commit()
-        return new_filename
 
     def get_restaurant_images(self, restaurant_cif):
 
@@ -302,9 +280,9 @@ class DataBaseController:
         try:
             self.cursor.execute('''
                 UPDATE Restaurant 
-                SET name = ?, address = ?,municipality = ?,tables = ?,phone = ?
+                SET name = ?, address = ?,municipality = ?,tables = ?,phone = ?, description = ?
                 WHERE cif = ?
-            ''', (restaurant.name,restaurant.address,restaurant.municipality,restaurant.tables,restaurant.phone,restaurant.cif
+            ''', (restaurant.name,restaurant.address,restaurant.municipality,restaurant.tables,restaurant.phone,restaurant.description,restaurant.cif
             ))
             self.connection.commit()
             return True

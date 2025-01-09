@@ -73,7 +73,7 @@ class ImagesFrame(ctk.CTkFrame):
 
     def load_images(self):
         self.images = [image[0] for image in self.db.get_restaurant_images(self.CIF)]
-        self.current_index = 0  # Reinicia el índice
+        self.current_index = 0
         if self.images:
             self.show_image()
             print(f"Imágenes disponibles: {self.images}")
@@ -83,19 +83,13 @@ class ImagesFrame(ctk.CTkFrame):
     def show_image(self):
         if not self.images:
             return
-
         filename = self.images[self.current_index]
         file_path = os.path.join(self.image_folder, filename)
-
-        print(f"Mostrando imagen: {filename}, Índice: {self.current_index}.path:{file_path}")
-
         if os.path.exists(file_path):
             try:
                 pil_image = PILImage.open(file_path)
-
                 max_width = 400
                 max_height = 400
-
                 width, height = pil_image.size
 
                 ratio = min(max_width / width, max_height / height)
@@ -103,14 +97,10 @@ class ImagesFrame(ctk.CTkFrame):
                 new_height = int(height * ratio)
 
                 pil_image = pil_image.resize((new_width, new_height), PILImage.Resampling.LANCZOS)
-
                 ctk_image = ctk.CTkImage(pil_image)
 
-                self.image_label.configure(image=ctk_image, text="")
-                self.image_label.image = ctk_image
-
                 ctk_image = ctk.CTkImage(light_image=pil_image, size=(new_width, new_height))
-                self.image_label.configure(image=ctk_image)
+                self.image_label.configure(image=ctk_image, text="")
                 self.image_label.image = ctk_image
             except Exception as e:
                 print(f"Error al mostrar la imagen: {e}")
@@ -157,7 +147,6 @@ class ImagesFrame(ctk.CTkFrame):
             if success:
                 if os.path.exists(file_path_to_delete):
                     os.remove(file_path_to_delete)
-                    print(f"Imagen eliminada del sistema de archivos: {filename_to_delete}")
                 self.load_images()
                 BasicController.usage_window("Éxito", "Imagen eliminada correctamente")
             else:
