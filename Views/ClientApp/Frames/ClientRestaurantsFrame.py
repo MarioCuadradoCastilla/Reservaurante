@@ -66,12 +66,31 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
         self.scrollable_frame.grid_columnconfigure(0, weight=1)
 
     def show_filter_menu(self):
+        self.disable_scroll()
         filter_window = ctk.CTkToplevel(self)
         filter_window.title("Filtros")
         filter_window.geometry("300x400")
         BasicController.center_window(filter_window, 300, 400)
         self._setup_filter_window(filter_window)
         filter_window.grab_set()
+        filter_window.protocol("WM_DELETE_WINDOW", lambda: self.close_filter_window(filter_window))
+
+    def close_filter_window(self, window):
+        self.enable_scroll()
+        window.destroy()
+
+
+    def disable_scroll(self):
+        self.scrollable_frame.unbind_all("<MouseWheel>")
+        self.scrollable_frame.unbind_all("<Button-4>")
+        self.scrollable_frame.unbind_all("<Button-5>")
+
+
+    def enable_scroll(self):
+        self.scrollable_frame.bind_all("<MouseWheel>", self.scrollable_frame._mouse_wheel_all)
+        self.scrollable_frame.bind_all("<Button-4>", self.scrollable_frame._mouse_wheel_all)
+        self.scrollable_frame.bind_all("<Button-5>", self.scrollable_frame._mouse_wheel_all)
+
 
     def _setup_filter_window(self, window):
         sort_label = ctk.CTkLabel(window, text="Ordenar por:")
@@ -115,6 +134,7 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
         self.current_municipality = self.municipality_var.get()
         self.current_sort_option = self.sort_var.get()
         self.load_filtered_restaurants()
+        self.enable_scroll()
         window.destroy()
 
     def _create_restaurant_card(self, restaurant_data, row):
@@ -269,6 +289,12 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
         self.filter_restaurants(self.search_entry.get())
 
     def load_filtered_restaurants(self):
+        # Cancela los temporizadores antes de destruir los widgets
+        for cif in self.restaurant_image_states:
+            if self.restaurant_image_states[cif]['timer_id']:
+                self.after_cancel(self.restaurant_image_states[cif]['timer_id'])
+                self.restaurant_image_states[cif]['timer_id'] = None
+
         for widget in self.scrollable_frame.winfo_children():
             widget.destroy()
 
@@ -304,6 +330,12 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
             self._create_restaurant_card(restaurant_data, i)
 
     def filter_restaurants(self, search_text):
+
+        for cif in self.restaurant_image_states:
+            if self.restaurant_image_states[cif]['timer_id']:
+                self.after_cancel(self.restaurant_image_states[cif]['timer_id'])
+                self.restaurant_image_states[cif]['timer_id'] = None
+
         for widget in self.scrollable_frame.winfo_children():
             widget.destroy()
 

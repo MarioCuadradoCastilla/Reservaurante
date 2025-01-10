@@ -76,7 +76,6 @@ class ImagesFrame(ctk.CTkFrame):
         self.current_index = 0
         if self.images:
             self.show_image()
-            print(f"Imágenes disponibles: {self.images}")
         else:
             self.image_label.configure(image=None, text="No hay imágenes disponibles")
 

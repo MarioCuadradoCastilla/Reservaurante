@@ -121,7 +121,7 @@ def open_client_registration_window(db, event=None):
                 username_entry.configure(border_color="red")
                 resultado = False
             else:
-                name_entry.configure(border_color="")
+                username_entry.configure(border_color="")
 
         if not (len(password) >= 7 and re.search(r'\d', password) and re.search(r'[A-Z]', password) and re.search(r'[a-z]', password) and re.search(r'[@#$€]', password)):
             errors.append(

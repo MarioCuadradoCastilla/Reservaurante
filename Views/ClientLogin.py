@@ -4,7 +4,6 @@ from Controllers import DataBaseController, BasicController
 from Views.ClientApp.ClientApp import main as client_app
 from Views.ClientRegistration import open_client_registration_window
 
-
 def open_client_login_window(db, event=None):
     window = ctk.CTk()
     window.title("Inicio de Sesión del Cliente")
@@ -24,12 +23,12 @@ def open_client_login_window(db, event=None):
     title_label = ctk.CTkLabel(main_frame, text="Inicio de Sesión\nCliente", font=("Helvetica", 30), anchor='center')
     title_label.pack(pady=10)
 
-    dni_label = ctk.CTkLabel(main_frame, text="Introduce el DNI:", font=("Helvetica", 18))
-    dni_label.pack(pady=5)
-    dni_entry = ctk.CTkEntry(main_frame, width=200, font=("Helvetica", 12), text_color="light grey")
-    dni_entry.bind("<FocusIn>", lambda event: dni_entry.configure(border_color="#1E90FF"))
-    dni_entry.bind("<FocusOut>", lambda event: dni_entry.configure(border_color=""))
-    dni_entry.pack(pady=5)
+    username_label = ctk.CTkLabel(main_frame, text="Introduce el nombre de usuario:", font=("Helvetica", 18))
+    username_label.pack(pady=5)
+    username_entry = ctk.CTkEntry(main_frame, width=200, font=("Helvetica", 12), text_color="light grey")
+    username_entry.bind("<FocusIn>", lambda event: username_entry.configure(border_color="#1E90FF"))
+    username_entry.bind("<FocusOut>", lambda event: username_entry.configure(border_color=""))
+    username_entry.pack(pady=5)
 
     password_label = ctk.CTkLabel(main_frame, text="Introduce la contraseña:", font=("Helvetica", 18))
     password_label.pack(pady=5)
@@ -39,19 +38,21 @@ def open_client_login_window(db, event=None):
     password_entry.pack(pady=5)
 
     def validation():
-        dni = dni_entry.get()
+        username = username_entry.get()
         password = password_entry.get()
         result = True
         errors = []
-
-        if db.obtain_dni(dni) != True:
+        dni = db.obtain_dni_by_username(username)
+        if not db.obtain_client_username(username):
             result = False
-            dni_entry.configure(border_color="red")
-            errors.append("El DNI no esta asignado a ningun usuario")
+            username_entry.configure(border_color="red")
+            errors.append("El nombre de usuario no está asignado a ningún usuario")
         else:
             if db.obtain_password_client(dni) != password:
                 result = False
-                errors.append(f"Esta contraseña no es la correcta, {password}, cliente {dni}")
+                password_entry.configure(border_color="red")
+                errors.append(f"Esta contraseña no es la correcta para el usuario {username}")
+
         if result != True:
             BasicController.show_errors(errors)
         else:
@@ -64,7 +65,7 @@ def open_client_login_window(db, event=None):
     login_button.bind("<Leave>", lambda event: login_button.configure(cursor=""))
 
     # Añadir la funcionalidad para que se pulse el botón de inicio de sesión al presionar Enter
-    dni_entry.bind("<Return>", lambda event: validation())
+    username_entry.bind("<Return>", lambda event: validation())
     password_entry.bind("<Return>", lambda event: validation())
 
     register_label = ctk.CTkLabel(main_frame, text="¿No te has registrado? Regístrate aquí",
@@ -79,6 +80,7 @@ def open_client_login_window(db, event=None):
     window.attributes("-topmost", True)
 
     window.mainloop()
+
 
 
 def open_Inicio_on_close(current_window, db):

@@ -211,31 +211,42 @@ class InfoFrame(ctk.CTkFrame):
             self.entries[field_name].grid_remove()
             self.edit_buttons[field_name].configure(text="Edit")
 
+    import re
+
     def _validate_field(self, field_name, value):
         errors = []
+
         if field_name == 'name':
             if not value.strip():
                 errors.append(f"El campo de {field_name} no puede estar vacío.")
             elif self.db.obtain_restaurant_name(value):
-                errors.append("El nombre del restaurante ya está registrado, prueba con otro")
+                errors.append("El nombre del restaurante ya está registrado, prueba con otro.")
+
         elif field_name == 'address':
             if not value.strip():
                 errors.append("La dirección no puede estar vacía.")
+
         elif field_name == 'municipality':
             municipalities = BasicController.load_municipalities()
             if value not in municipalities:
                 errors.append("Selecciona un municipio válido.")
+
         elif field_name == 'tables':
             if not value.isdigit() or int(value) <= 0:
                 errors.append("El número de mesas debe ser un número entero positivo.")
+
         elif field_name == 'phone':
             if not value.isdigit() or len(value) != 9:
                 errors.append("El número de teléfono debe tener 9 números y solo debe contener números.")
+            elif self.db.phone_exists(value):
+                errors.append("El número de teléfono ya está en uso.")
+
         elif field_name == 'password':
             if not (len(value) >= 7 and re.search(r'\d', value) and re.search(r'[A-Z]', value)
                     and re.search(r'[a-z]', value) and re.search(r'[@#$€]', value)):
                 errors.append(
                     "La contraseña debe tener al menos 7 caracteres, una letra mayúscula, una letra minúscula, un número y un carácter especial (@#$€).")
+
         return errors
 
     def _show_field_editor(self, field_name):

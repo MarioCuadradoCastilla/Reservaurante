@@ -195,7 +195,7 @@ class ClientInfoFrame(ctk.CTkFrame):
             client.surname = self.labels['surname'].cget("text")
             client.phone = int(self.labels['phone'].cget("text"))
             client.username = self.labels['username'].cget("text")
-            client.username = self.labels['password'].cget("text")
+            client.password = self.labels['password'].cget("text")
 
             if self.db.update_client(client):
                 global original_client_data

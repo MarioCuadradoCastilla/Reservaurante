@@ -73,9 +73,6 @@ def main(db):
 
     window.mainloop()
 
-    db.close_connection()
 
-if __name__ == '__main__':
-    while True:
-        main(None)
-        break
+
+

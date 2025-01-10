@@ -69,7 +69,7 @@ def open_restaurant_registration_window(db, event=None):
 
     password_label = ctk.CTkLabel(main_frame, text="Contraseña:", font=("Helvetica", 18))
     password_label.grid(row=7, column=0, pady=5, sticky="e")
-    password_entry = ctk.CTkEntry(main_frame, width=300, font=("Helvetica", 12))
+    password_entry = ctk.CTkEntry(main_frame, width=300, font=("Helvetica", 12),show='*')
     password_entry.grid(row=7, column=1, pady=5)
 
     def create_restaurant():
@@ -118,6 +118,10 @@ def open_restaurant_registration_window(db, event=None):
 
         if not phone.isdigit() or len(phone) != 9:
             errores.append("El número de teléfono debe tener 9 números y solo debe contener números.")
+            phone_entry.configure(border_color="red")
+            resultado = False
+        elif db.phone_exists(phone):
+            errores.append("El número de teléfono ya esta en uso.")
             phone_entry.configure(border_color="red")
             resultado = False
 

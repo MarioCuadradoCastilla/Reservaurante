@@ -4,7 +4,6 @@ from Models import Client, Restaurant, Booking, Review
 import os
 import shutil
 import uuid
-from pathlib import Path
 
 
 class DataBaseController:
@@ -149,8 +148,8 @@ class DataBaseController:
 
         self.connection.commit()
         return True
+
     def delete_booking(self, id_booking):
-        # Eliminar la referencia en la base de datos
         self.cursor.execute('''
             DELETE FROM Bookings
             WHERE id = ?
@@ -165,6 +164,12 @@ class DataBaseController:
         self.connection.commit()
         return True
 
+    def phone_exists(self, phone):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT phone FROM Restaurant WHERE phone = ?", (phone,))
+        result = cursor.fetchone()
+        return result is not None
+
     def check_username_exists(self, username):
         self.cursor.execute("SELECT username FROM Client WHERE username = ?", (username,))
         result = self.cursor.fetchone()
@@ -176,6 +181,14 @@ class DataBaseController:
         if result:
             return result[0]  # Devuelve el primer elemento de la tupla, que debería ser el nombre de usuario
         return None  # Devuelve None si no se encuentra el usuario
+
+    def obtain_dni_by_username(self, username):
+        cursor = self.connection.cursor()
+        cursor.execute("SELECT dni FROM Client WHERE username = ?", (username,))
+        result = cursor.fetchone()
+        if result:
+            return result[0]
+        return None
 
     def get_restaurant_images(self, restaurant_cif):
 
@@ -381,3 +394,4 @@ class DataBaseController:
         if self.connection:
             self.connection.close()
             self.connection = None
+            print("conexion a la base de datos cerrada correctaamente")
