@@ -99,18 +99,18 @@ class BasicController:
         try:
             events = window.tk.call('after', 'info')
             if isinstance(events, tuple):
-                events = [str(event) for event in events]
+                events = list(events)  # Convertir a lista si es un tuple
             for event in events:
                 try:
                     window.after_cancel(event)
                 except TclError as e:
-                    error_msg = str(e)
-                    if "invalid command name" in error_msg:
+                    if "invalid command name" in str(e):
                         pass
                     else:
                         print(f"Error al cancelar el evento {event}: {e}")
         except Exception as e:
-            print(f"Eventos que no pueden ser cancelados:")
+            print(f"Eventos que no pueden ser cancelados: {e}")
+
 
 
 

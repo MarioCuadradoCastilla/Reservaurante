@@ -263,7 +263,7 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
     def _on_restaurant_click(self, restaurant_data):
         username = self.db.get_user_name(self.dni)
         restaurant_frame = RestaurantFrame(self, self.db, restaurant_data, self.dni,username)
-        restaurant_frame.show_restaurant_details(restaurant_data, self.dni)
+        restaurant_frame.show_restaurant_details(restaurant_data)
 
     def _on_search_change(self, *args):
         self.filter_restaurants(self.search_entry.get())

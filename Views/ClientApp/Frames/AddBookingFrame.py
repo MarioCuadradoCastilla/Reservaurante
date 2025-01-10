@@ -40,7 +40,6 @@ class BookingWindow:
         self.tables_spinbox = Spinbox(tables_frame, from_=1, to=100, font=("Helvetica", 14))
         self.tables_spinbox.pack(side="right", expand=True, fill="x", padx=5)
 
-        # Date picker
         date_frame = ctk.CTkFrame(self.window)
         date_frame.pack(fill="x", padx=20, pady=10)
 
@@ -51,7 +50,6 @@ class BookingWindow:
         self.calendar = Calendar(date_frame, selectmode='day', date_pattern='dd/mm/yyyy', mindate=today)
         self.calendar.pack(side="right", expand=True, fill="x", padx=5)
 
-        # Time picker frame
         time_frame = ctk.CTkFrame(self.window)
         time_frame.pack(fill="x", padx=20, pady=10)
 
@@ -77,15 +75,11 @@ class BookingWindow:
         submit_btn.pack(pady=20)
 
     def _check_availability(self, date, requested_tables):
-        return self.db.get_available_tables(
-            self.restaurant_data['cif'],
-            date,
-            requested_tables
-        )
-
+        available_tables=self.db.get_available_tables(self.restaurant_data['cif'],date)
+        return available_tables
 
     def _make_booking(self, tables, date):
-        messages = []
+        errors = []
         try:
             booking = Booking(
                 id=None,
@@ -104,35 +98,33 @@ class BookingWindow:
                 self.bookings_frame.load_bookings()
 
         except Exception as e:
-            messages.append(f"Error al realizar la reserva: {str(e)}")
-            bc.show_errors(messages)
+            errors.append(f"Error al realizar la reserva: {str(e)}")
+            bc.show_errors(errors)
 
     def _handle_submit(self):
-        messages = []
+        errors = []
         try:
-            num_personas = int(self.tables_spinbox.get())
+            persons = int(self.tables_spinbox.get())
             date_str = f"{self.calendar.get_date()} {self.time_spinboxes[0].get()}:{self.time_spinboxes[1].get()}"
             date = datetime.strptime(date_str, '%d/%m/%Y %H:%M')
 
-            mesas = num_personas // 4
-            if num_personas % 4 != 0:
-                mesas += 1
-
-            available_tables = self._check_availability(date, mesas)
+            tables = persons // 4
+            if persons % 4 != 0:
+                tables += 1
+            available_tables = self._check_availability(date, tables)
 
             if available_tables is None:
-                messages.append("Error al verificar disponibilidad")
-                bc.show_errors(messages)
+                errors.append("Error al verificar disponibilidad")
+                bc.show_errors(errors)
                 return
 
-            if available_tables >= mesas:
-                self._make_booking(mesas, date)
+            if available_tables >= tables:
+                self._make_booking(tables, date)
             else:
-                messages.append(
-                    f"No hay mesas disponibles para el horario seleccionado. Mesas disponibles: {available_tables} (4 personas por mesa)")
-                BasicController.show_errors(messages)
+                errors.append(f"No hay mesas disponibles para el horario seleccionado. Mesas disponibles: {available_tables} (4 personas por mesa)")
+                BasicController.show_errors(errors)
 
         except ValueError as e:
-            messages.append("Error en el formato de los datos")
-            bc.show_errors(messages)
+            errors.append("Error en el formato de los datos")
+            bc.show_errors(errors)
 

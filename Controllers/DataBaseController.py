@@ -1,6 +1,5 @@
 import sqlite3
 from datetime import datetime, timedelta
-from unittest import result
 from Models import Client, Restaurant, Booking, Review
 import os
 import shutil
@@ -189,13 +188,11 @@ class DataBaseController:
 
         return self.cursor.fetchall()
 
-    def get_available_tables(self, restaurantCIF, date, reserved_tables):
+    def get_available_tables(self, restaurantCIF, date):
         self.cursor.execute("SELECT tables FROM Restaurant WHERE cif = ?", (restaurantCIF,))
         result = self.cursor.fetchone()
         if result is None:
-            print("Restaurante no encontrado.")
             return None
-
         total_tables = result[0]
         start_date = date
         finish_date = date + timedelta(hours=2)
@@ -215,13 +212,7 @@ class DataBaseController:
         reserved_tables = result_Bookings[0] if result_Bookings[0] else 0
         available_tables = total_tables - reserved_tables
 
-        if available_tables >= reserved_tables:
-            print(f"Mesas disponibles: {available_tables}")
-            return available_tables
-        else:
-            print(
-                f"No hay suficientes mesas disponibles. Mesas solicitadas: {reserved_tables}, Mesas disponibles: {available_tables}")
-            return available_tables
+        return available_tables
 
     def obtain_dni(self, dni):
         self.cursor.execute("SELECT dni FROM Client WHERE dni = ?", (dni,))

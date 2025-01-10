@@ -18,7 +18,7 @@ class RestaurantFrame(ctk.CTkFrame):
         self.current_index = 0
         self.image_folder = os.path.join(self.db.images_dir, self.restaurant_data['cif'])
 
-    def show_restaurant_details(self, restaurant_data, dni):
+    def show_restaurant_details(self, restaurant_data):
         details_window = ctk.CTkToplevel(self)
         details_window.title(restaurant_data['name'])
         BasicController.center_window(details_window, 800, 600)

@@ -3,5 +3,9 @@ customtkinter
 Pillow
 tkcalendar
 ttkwidgets
+pytest
+pywinauto
+
+
 
 
