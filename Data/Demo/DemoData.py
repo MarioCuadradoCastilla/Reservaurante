@@ -65,7 +65,7 @@ def load_demo_data(db_controller):
     # Demo Bookings con fechas específicas
     bookings = [
         Booking(1, "12345678A", "B12345678", 2, get_restaurant_address_by_cif("B12345678"),
-                create_datetime(2024, 1, 15, 14, 30)),
+                create_datetime(2025, 1, 15, 14, 30)),
         Booking(2, "87654321B", "B23456789", 4, get_restaurant_address_by_cif("B23456789"),
                 create_datetime(2024, 1, 16, 20, 0)),
         Booking(3, "11111111C", "B34567890", 3, get_restaurant_address_by_cif("B34567890"),
@@ -91,22 +91,22 @@ def load_demo_data(db_controller):
         Booking(12, "87654321B", "B34567890", 2, get_restaurant_address_by_cif("B34567890"),
                 create_datetime(2024, 3, 6, 20, 0)),
         Booking(13, "11111111C", "B45678901", 4, get_restaurant_address_by_cif("B45678901"),
-                create_datetime(2024, 3, 7, 19, 30)),
+                create_datetime(2025, 3, 7, 19, 30)),
         Booking(14, "22222222D", "B56789012", 3, get_restaurant_address_by_cif("B56789012"),
-                create_datetime(2024, 3, 8, 18, 0)),
+                create_datetime(2025, 3, 8, 18, 0)),
         Booking(15, "33333333E", "B12345678", 2, get_restaurant_address_by_cif("B12345678"),
-                create_datetime(2024, 3, 9, 21, 0)),
+                create_datetime(2025, 3, 9, 21, 0)),
 
         Booking(16, "55555555G", "B67890123", 2, get_restaurant_address_by_cif("B67890123"),
-                create_datetime(2024, 3, 10, 19, 0)),
+                create_datetime(2025, 3, 10, 19, 0)),
         Booking(17, "44444444F", "B78901234", 4, get_restaurant_address_by_cif("B78901234"),
-                create_datetime(2024, 3, 11, 20, 0)),
+                create_datetime(2025, 3, 11, 20, 0)),
         Booking(18, "77777777I", "B89012345", 3, get_restaurant_address_by_cif("B89012345"),
-                create_datetime(2024, 3, 12, 21, 0)),
+                create_datetime(2025, 3, 12, 21, 0)),
         Booking(19, "88888888J", "B90123456", 2, get_restaurant_address_by_cif("B90123456"),
-                create_datetime(2024, 3, 13, 22, 0)),
+                create_datetime(2025, 3, 13, 22, 0)),
         Booking(20, "66666666H", "B01234567", 2, get_restaurant_address_by_cif("B01234567"),
-                create_datetime(2024, 3, 14, 19, 0))
+                create_datetime(2025, 3, 14, 19, 0))
     ]
 
     for booking in bookings:
