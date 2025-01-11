@@ -23,6 +23,7 @@ class ClientReviewsFrame(ctk.CTkFrame):
 
         self.load_reviews()
 
+
     def load_reviews(self):
         for widget in self.reviews_list_frame.winfo_children():
             widget.destroy()
@@ -83,12 +84,15 @@ class ClientReviewsFrame(ctk.CTkFrame):
         )
         delete_button.pack(padx=10, pady=(10, 10), fill="x", expand=True)
 
+    def enable_scroll(self):
+        self.reviews_list_frame.bind_all("<MouseWheel>",  self.reviews_list_frame._mouse_wheel_all)
+        self.reviews_list_frame.bind_all("<Button-4>",  self.reviews_list_frame._mouse_wheel_all)
+        self.reviews_list_frame.bind_all("<Button-5>", self.reviews_list_frame._mouse_wheel_all)
+
     def delete_review(self, review_id):
-        print(f"Intentando eliminar reseña {review_id}")
         if self.db.delete_review(review_id):
-            print("Reseña eliminada exitosamente")
             self.load_reviews()
-        else:
-            print("Error al eliminar la reseña")
+
+
 
 

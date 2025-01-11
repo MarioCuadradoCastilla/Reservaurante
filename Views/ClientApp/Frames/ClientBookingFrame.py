@@ -2,21 +2,25 @@ import customtkinter as ctk
 from Controllers import BasicController
 from datetime import datetime
 
-
 class ClientBookingsFrame(ctk.CTkFrame):
     def __init__(self, parent, db, dni):
         super().__init__(parent)
         self.db = db
         self.dni = dni
         self.setup_ui()
-        self.load_bookings()
 
     def setup_ui(self):
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)
 
         self._create_title()
-        self._create_bookings_frame()
+
+        self.bookings_frame = ctk.CTkScrollableFrame(self, width=400, height=500)
+        self.bookings_frame.grid(row=1, column=0, padx=20, pady=20, sticky="nsew")
+        self.bookings_frame.grid_columnconfigure(0, weight=1)
+
+        self.load_bookings()
+        self.enable_scroll()  # Asegúrate de habilitar el desplazamiento aquí
 
     def _create_title(self):
         self.title = ctk.CTkLabel(
@@ -25,11 +29,6 @@ class ClientBookingsFrame(ctk.CTkFrame):
             font=("Helvetica", 36, "bold")
         )
         self.title.grid(row=0, column=0, padx=120, pady=(50, 10), sticky="n")
-
-    def _create_bookings_frame(self):
-        self.bookings_frame = ctk.CTkScrollableFrame(self, width=400, height=500)
-        self.bookings_frame.grid(row=1, column=0, padx=20, pady=20, sticky="nsew")
-        self.bookings_frame.grid_columnconfigure(0, weight=1)
 
     def load_bookings(self):
         for widget in self.bookings_frame.winfo_children():
@@ -105,6 +104,11 @@ class ClientBookingsFrame(ctk.CTkFrame):
             width=120
         )
         cancel_btn.grid(row=4, column=0, padx=10, pady=10, sticky="w")
+
+    def enable_scroll(self):
+        self.bookings_frame.bind_all("<MouseWheel>",  self.bookings_frame._mouse_wheel_all)
+        self.bookings_frame.bind_all("<Button-4>",  self.bookings_frame._mouse_wheel_all)
+        self.bookings_frame.bind_all("<Button-5>", self.bookings_frame._mouse_wheel_all)
 
     def _cancel_booking(self, booking_id):
         try:

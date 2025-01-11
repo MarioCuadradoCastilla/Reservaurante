@@ -194,7 +194,7 @@ class InfoFrame(ctk.CTkFrame):
 
     def _save_field(self, field_name):
         new_value = self.entries[field_name].get()
-        if field_name == 'name' and new_value == original_restaurant_data['name']:
+        if (field_name == 'name' and new_value == original_restaurant_data['name']) or (field_name == 'phone' and new_value == original_restaurant_data['phone']):
             validation_errors = []
         else:
             validation_errors = self._validate_field(field_name, new_value)
@@ -211,8 +211,6 @@ class InfoFrame(ctk.CTkFrame):
             self.entries[field_name].grid_remove()
             self.edit_buttons[field_name].configure(text="Edit")
 
-    import re
-
     def _validate_field(self, field_name, value):
         errors = []
 
@@ -221,7 +219,6 @@ class InfoFrame(ctk.CTkFrame):
                 errors.append(f"El campo de {field_name} no puede estar vacío.")
             elif self.db.obtain_restaurant_name(value):
                 errors.append("El nombre del restaurante ya está registrado, prueba con otro.")
-
         elif field_name == 'address':
             if not value.strip():
                 errors.append("La dirección no puede estar vacía.")

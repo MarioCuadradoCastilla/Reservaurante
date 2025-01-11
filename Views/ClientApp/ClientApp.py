@@ -113,10 +113,20 @@ class MainWindow:
         self.show_frame("info")
 
     def show_frame(self, frame_name):
+        # Deshabilitar el desplazamiento en todos los frames primero
+        for frame in self.frames.values():
+            if hasattr(frame, 'disable_scroll'):
+                frame.disable_scroll()
+
+        # Ocultar todos los frames
         for frame in self.frames.values():
             frame.grid_forget()
+
+        # Mostrar el frame deseado y habilitar su desplazamiento
         if frame_name in self.frames:
             self.frames[frame_name].grid(row=0, column=0, sticky="nsew")
+            if hasattr(self.frames[frame_name], "enable_scroll"):
+                self.frames[frame_name].enable_scroll()
             if hasattr(self.frames[frame_name], "load_info"):
                 self.frames[frame_name].load_info()
             elif hasattr(self.frames[frame_name], "load_bookings"):
@@ -140,6 +150,7 @@ def main(db, dni):
     window.iconbitmap(BasicController.obtain_icon_path())
     app = MainWindow(window, db, dni)
     window.mainloop()
+
 
 if __name__ == "__main__":
     db = DataBaseController()

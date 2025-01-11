@@ -18,6 +18,7 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
         self.setup_ui()
         self.load_filtered_restaurants()
 
+
     def setup_ui(self):
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(1, weight=1)
@@ -79,18 +80,15 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
         self.enable_scroll()
         window.destroy()
 
-
     def disable_scroll(self):
         self.scrollable_frame.unbind_all("<MouseWheel>")
         self.scrollable_frame.unbind_all("<Button-4>")
         self.scrollable_frame.unbind_all("<Button-5>")
 
-
     def enable_scroll(self):
         self.scrollable_frame.bind_all("<MouseWheel>", self.scrollable_frame._mouse_wheel_all)
         self.scrollable_frame.bind_all("<Button-4>", self.scrollable_frame._mouse_wheel_all)
         self.scrollable_frame.bind_all("<Button-5>", self.scrollable_frame._mouse_wheel_all)
-
 
     def _setup_filter_window(self, window):
         sort_label = ctk.CTkLabel(window, text="Ordenar por:")
@@ -134,6 +132,7 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
         self.current_municipality = self.municipality_var.get()
         self.current_sort_option = self.sort_var.get()
         self.load_filtered_restaurants()
+        self.scrollable_frame._parent_canvas.yview_moveto(0)  # Mueve la barra de desplazamiento al inicio
         self.enable_scroll()
         window.destroy()
 
@@ -289,7 +288,6 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
         self.filter_restaurants(self.search_entry.get())
 
     def load_filtered_restaurants(self):
-        # Cancela los temporizadores antes de destruir los widgets
         for cif in self.restaurant_image_states:
             if self.restaurant_image_states[cif]['timer_id']:
                 self.after_cancel(self.restaurant_image_states[cif]['timer_id'])
@@ -360,3 +358,4 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
                 'municipality': restaurant[4],
             }
             self._create_restaurant_card(restaurant_data, i)
+        self.scrollable_frame._parent_canvas.yview_moveto(0)
