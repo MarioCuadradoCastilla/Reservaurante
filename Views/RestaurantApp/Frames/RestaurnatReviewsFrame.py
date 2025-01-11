@@ -24,6 +24,16 @@ class ReviewsFrame(ctk.CTkFrame):
 
         self.load_reviews()
 
+    def disable_scroll(self):
+        self.reviews_list_frame.unbind_all("<MouseWheel>")
+        self.reviews_list_frame.unbind_all("<Button-4>")
+        self.reviews_list_frame.unbind_all("<Button-5>")
+
+    def enable_scroll(self):
+        self.reviews_list_frame.bind_all("<MouseWheel>", self.reviews_list_frame._mouse_wheel_all)
+        self.reviews_list_frame.bind_all("<Button-4>", self.reviews_list_frame._mouse_wheel_all)
+        self.reviews_list_frame.bind_all("<Button-5>", self.reviews_list_frame._mouse_wheel_all)
+
     def load_reviews(self):
         for widget in self.reviews_list_frame.winfo_children():
             widget.destroy()

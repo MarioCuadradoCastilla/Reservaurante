@@ -27,6 +27,16 @@ class BookingsFrame(ctk.CTkFrame):
         self.bookings_frame = ctk.CTkScrollableFrame(self, width=240, height=460)
         self.bookings_frame.place(relx=0.5, rely=0.55, anchor='center')
 
+    def disable_scroll(self):
+        self.bookings_frame.unbind_all("<MouseWheel>")
+        self.bookings_frame.unbind_all("<Button-4>")
+        self.bookings_frame.unbind_all("<Button-5>")
+
+    def enable_scroll(self):
+        self.bookings_frame.bind_all("<MouseWheel>", self.bookings_frame._mouse_wheel_all)
+        self.bookings_frame.bind_all("<Button-4>", self.bookings_frame._mouse_wheel_all)
+        self.bookings_frame.bind_all("<Button-5>", self.bookings_frame._mouse_wheel_all)
+        
     def load_bookings(self):
         for widget in self.bookings_frame.winfo_children():
             widget.destroy()

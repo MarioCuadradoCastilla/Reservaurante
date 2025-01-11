@@ -105,8 +105,15 @@ class MainWindow:
         self.show_frame("restaurant")
 
     def show_frame(self, frame_name):
+        # Deshabilitar el desplazamiento en todos los frames primero
+        for frame in self.frames.values():
+            if hasattr(frame, 'disable_scroll'):
+                frame.disable_scroll()
+
         for frame in self.frames.values():
             frame.grid_forget()
+            if hasattr(self.frames[frame_name], "enable_scroll"):
+                self.frames[frame_name].enable_scroll()
         self.frames[frame_name].grid(row=0, column=0, sticky="nsew")
 
 

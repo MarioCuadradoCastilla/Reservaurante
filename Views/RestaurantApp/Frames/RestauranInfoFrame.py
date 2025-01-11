@@ -293,7 +293,8 @@ class InfoFrame(ctk.CTkFrame):
 
             restaurant.name = self.labels['name'].cget("text")
             restaurant.address = self.labels['address'].cget("text")
-            restaurant.municipality = self.labels['municipality'].cget("text")
+            if not self.entries['municipality'].winfo_viewable():
+                restaurant.municipality = self.labels['municipality'].cget("text")
             restaurant.tables = int(self.labels['tables'].cget("text"))
             restaurant.phone = int(self.labels['phone'].cget("text"))
             restaurant.description = self.description_entry.get("1.0", "end-1c")
