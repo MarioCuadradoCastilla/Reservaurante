@@ -5,7 +5,6 @@ from Views.ClientLogin import open_client_login_window
 from Controllers import DataBaseController, BasicController
 import os
 
-
 def main(db):
     ctk.set_appearance_mode("dark")
     ctk.set_default_color_theme("dark-blue")
@@ -51,7 +50,7 @@ def main(db):
         text_color="white",
         font = ("Helvetica", 22)
     )
-    register_client_label.bind("<Button-1>", lambda event: [BasicController.cancel_all_events(window),window.destroy(), open_client_login_window(db)])
+    register_client_label.bind("<Button-1>", lambda event: window.after(100, lambda: BasicController.complete_destruction_and_transition(window, lambda: open_client_login_window(db))))
     register_client_label.bind("<Enter>", lambda event: register_client_label.configure(text_color="#1E90FF", cursor="hand2"))
     register_client_label.bind("<Leave>", lambda event: register_client_label.configure(text_color="white", cursor=""))
     # Usamos grid en lugar de pack
@@ -63,8 +62,8 @@ def main(db):
         text_color="white",
         font = ("Helvetica", 22)
     )
-    register_restaurant_label.bind("<Button-1>", lambda event: [BasicController.cancel_all_events(window) ,window.destroy(), open_restaurant_login_window(db)])
-    register_restaurant_label.bind("<Enter>", lambda event: register_restaurant_label.configure(text_color="#1E90FF",cursor="hand2"))
+    register_restaurant_label.bind("<Button-1>", lambda event: window.after(100, lambda: BasicController.complete_destruction_and_transition(window, lambda: open_restaurant_login_window(db))))
+    register_restaurant_label.bind("<Enter>", lambda event: register_restaurant_label.configure(text_color="#1E90FF", cursor="hand2"))
     register_restaurant_label.bind("<Leave>", lambda event: register_restaurant_label.configure(text_color="white", cursor=""))
 
     register_restaurant_label.grid(row=2, column=0, pady=40, sticky="n")
@@ -72,6 +71,17 @@ def main(db):
     frame.pack(pady=20, padx=30, fill="both", expand=True)
 
     window.mainloop()
+
+if __name__ == "__main__":
+    from Controllers import DataBaseController
+
+    db = DataBaseController()
+    db.open_connection()
+    try:
+        main(db)
+    finally:
+        db.close_connection()
+
 
 
 

@@ -1,10 +1,8 @@
-import shutil
-import os
-import uuid
-from tkinter import ttk, filedialog
+
+from tkinter import ttk
 import customtkinter as ctk
-from datetime import datetime
-from Controllers import DataBaseController, BasicController
+
+from Controllers import BasicController
 import re
 
 original_restaurant_data = {
@@ -170,7 +168,6 @@ class InfoFrame(ctk.CTkFrame):
                 'phone': str(restaurant.phone),
                 'description': str(restaurant.description)
             }
-
             self.labels['cif'].configure(text=str(restaurant.cif))
             for field in ['name', 'address', 'municipality', 'tables', 'phone']:
                 self.labels[field].configure(text=str(getattr(restaurant, field)))
@@ -279,28 +276,56 @@ class InfoFrame(ctk.CTkFrame):
             for field in original_restaurant_data
         )
 
+    def disable_combobox_scroll(self):
+        self.entries['municipality'].unbind_all("<MouseWheel>")
+        self.entries['municipality'].unbind_all("<Button-4>")
+        self.entries['municipality'].unbind_all("<Button-5>")
+
+    def enable_combobox_scroll(self):
+        self.entries['municipality'].bind_all("<MouseWheel>", lambda e: self.on_combobox_scroll(e))
+        self.entries['municipality'].bind_all("<Button-4>", lambda e: self.on_combobox_scroll(e))
+        self.entries['municipality'].bind_all("<Button-5>", lambda e: self.on_combobox_scroll(e))
+
+    def on_combobox_scroll(self, event):
+        if self.entries['municipality'].state() == 'readonly':
+            return
+        self.entries['municipality'].tkraise()
+
     def guardar_cambios(self):
+        global original_restaurant_data  # Asegúrate de declarar la variable global aquí
         errors = []
         try:
             if not self._has_changes():
                 errors.append("No se han realizado cambios")
                 BasicController.show_errors(errors)
+                self.enable_combobox_scroll()
                 return
 
             restaurant = self.db.obtain_restaurant(self.CIF)
             if not restaurant:
                 raise Exception("Restaurant not found")
 
+            # Guarda el valor del combobox si está en modo de edición
+            if self.entries['municipality'].winfo_viewable():
+                new_value = self.entries['municipality'].get()
+                if new_value != original_restaurant_data['municipality']:
+                    validation_errors = self._validate_field('municipality', new_value)
+                    if validation_errors:
+                        BasicController.show_errors(validation_errors)
+                        return
+                    else:
+                        self.labels['municipality'].configure(text=new_value)
+                        self.entries['municipality'].grid_remove()
+                        self.labels['municipality'].grid()
+
             restaurant.name = self.labels['name'].cget("text")
             restaurant.address = self.labels['address'].cget("text")
-            if not self.entries['municipality'].winfo_viewable():
-                restaurant.municipality = self.labels['municipality'].cget("text")
+            restaurant.municipality = self.labels['municipality'].cget("text")
             restaurant.tables = int(self.labels['tables'].cget("text"))
             restaurant.phone = int(self.labels['phone'].cget("text"))
             restaurant.description = self.description_entry.get("1.0", "end-1c")
 
             if self.db.update_restaurant(restaurant):
-                global original_restaurant_data
                 original_restaurant_data = {
                     'name': restaurant.name,
                     'address': restaurant.address,
@@ -310,9 +335,11 @@ class InfoFrame(ctk.CTkFrame):
                     'description': str(restaurant.description)
                 }
                 BasicController.usage_window("Éxito", "Cambios guardados correctamente")
+                self.enable_combobox_scroll()  # Habilitar nuevamente el scroll del combobox
             else:
                 raise Exception("Failed to update restaurant")
-
         except Exception as e:
             errors.append(f"Error: No se pudieron guardar los cambios: {str(e)}")
             BasicController.show_errors(errors)
+
+

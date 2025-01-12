@@ -129,8 +129,8 @@ def open_restaurant_registration_window(db, event=None):
             errores.append("Debe seleccionar un municipio.")
             resultado = False
 
-        if not tables.isdigit():
-            errores.append("El número de mesas debe ser un número.")
+        if not tables.isdigit() or int(tables) <= 0:
+            errores.append("El número de mesas debe ser un número mayor que 0.")
             tables_entry.configure(border_color="red")
             resultado = False
 

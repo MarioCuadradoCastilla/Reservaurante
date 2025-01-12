@@ -71,6 +71,30 @@ class BasicController:
             close_button = ctk.CTkButton(exito_window, text="Cerrar",command=lambda: [exito_window.grab_release(), exito_window.destroy()])
             close_button.pack(pady=10)
 
+
+    @staticmethod
+    def complete_destruction_and_transition(window, callback):
+        BasicController.cancel_after_scripts(window)
+        BasicController.unbind_all_events(window)
+        window.destroy()
+        callback()
+    @staticmethod
+    def cancel_after_scripts(window):
+        try:
+            scripts = window.tk.eval('after info').split()
+            for script in scripts:
+                try:
+                    window.after_cancel(script)
+                except TclError:
+                    print("Error Tcl")
+        except Exception as e:
+                print(f'Eventos que no pueden ser cancelados: {e}')
+    @staticmethod
+    def unbind_all_events(widget):
+        widget.unbind("<Button-1>")
+        widget.unbind("<Enter>")
+        widget.unbind("<Leave>")
+
     @staticmethod
     def load_municipalities():
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -93,22 +117,6 @@ class BasicController:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         return script_dir
 
-    @staticmethod
-    def cancel_all_events(window):
-        try:
-            events = window.tk.call('after', 'info')
-            if isinstance(events, tuple):
-                events = list(events)  # Convertir a lista si es un tuple
-            for event in events:
-                try:
-                    window.after_cancel(event)
-                except TclError as e:
-                    if "invalid command name" in str(e):
-                        pass
-                    else:
-                        print(f"Error al cancelar el evento {event}: {e}")
-        except Exception as e:
-            print(f"Eventos que no pueden ser cancelados: {e}")
 
 
 

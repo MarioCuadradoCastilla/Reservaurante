@@ -19,8 +19,7 @@ def open_restaurant_login_window(db, event=None):
     main_frame = ctk.CTkFrame(window, corner_radius=10)
     main_frame.pack(pady=20, padx=20, fill="both", expand=True, side="left")
 
-    title_label = ctk.CTkLabel(main_frame, text="Inicio de Sesión\nRestaurante", font=("Helvetica", 30),
-                               anchor='center')
+    title_label = ctk.CTkLabel(main_frame, text="Inicio de Sesión\nRestaurante", font=("Helvetica", 30), anchor='center')
     title_label.pack(pady=10)
 
     cif_label = ctk.CTkLabel(main_frame, text="Introduce el CIF:", font=("Helvetica", 18))
@@ -55,8 +54,7 @@ def open_restaurant_login_window(db, event=None):
         if result != True:
             BasicController.show_errors(errors)
         else:
-            window.destroy()
-            RestaurantApp.main(db, cif)
+            window.after(100, lambda: BasicController.complete_destruction_and_transition(window, lambda: RestaurantApp.main(db, cif)))
 
     login_button = ctk.CTkButton(main_frame, text="Iniciar Sesión", command=validation)
     login_button.pack(pady=10)
@@ -68,8 +66,7 @@ def open_restaurant_login_window(db, event=None):
     register_label = ctk.CTkLabel(main_frame, text="¿No te has registrado? Regístrate aquí", text_color="white")
     register_label.pack(pady=5)
 
-    register_label.bind("<Button-1>", lambda event: [BasicController.cancel_all_events(window), window.destroy(),
-                                                     open_restaurant_registration_window(db)])
+    register_label.bind("<Button-1>", lambda event: window.after(100, lambda: BasicController.complete_destruction_and_transition(window, lambda: open_restaurant_registration_window(db))))
     register_label.bind("<Enter>", lambda event: register_label.configure(text_color="#1E90FF", cursor="hand2"))
     register_label.bind("<Leave>", lambda event: register_label.configure(text_color="white", cursor=""))
 
@@ -79,9 +76,7 @@ def open_restaurant_login_window(db, event=None):
 
 def open_Inicio_on_close(current_window, db):
     from Views.Inicio import main
-    BasicController.cancel_all_events(current_window)
-    current_window.destroy()
-    main(db)
+    current_window.after(100, lambda: BasicController.complete_destruction_and_transition(current_window, lambda: main(db)))
 
 if __name__ == "__main__":
     from Controllers import DataBaseController
@@ -92,5 +87,6 @@ if __name__ == "__main__":
         open_restaurant_login_window(db, None)
     finally:
         db.close_connection()
+
 
 

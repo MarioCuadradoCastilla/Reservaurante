@@ -4,9 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b09e7b45-d70f-46ce-9eb4-6974a7151c75" name="Changes" comment="Version Final Revisada y Actualizada">
+    <list default="true" id="b09e7b45-d70f-46ce-9eb4-6974a7151c75" name="Changes" comment="Version Final Revisada y Especificaciónes Aclaradas.">
+      <change afterPath="$PROJECT_DIR$/test/test_tables.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/BasicController.py" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/BasicController.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/DataBase/Reservaurante.db" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DataBase/Reservaurante.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/ClientLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ClientLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/Inicio.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/Inicio.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestauranInfoFrame.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/RestaurantApp/Frames/RestauranInfoFrame.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/RestaurantLogin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/RestaurantLogin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/RestaurantRegistration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Views/RestaurantRegistration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/testBasicController.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/testBasicController.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_databaseController.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_databaseController.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +58,21 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Python tests.Python tests for SystemTest.test_login.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_databaseController.TestDataBaseController.test_add_restaurant_image_copies_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_databaseController.TestDataBaseController.test_add_restaurant_image_creates_directory.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_databaseController.TestDataBaseController.test_add_restaurant_image_db_entry.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_databaseController.TestDataBaseController.test_add_restaurant_image_filename.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_databaseController.TestDataBaseController.test_get_available_tables_no_bookings.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_databaseController.TestDataBaseController.test_get_available_tables_restaurant_not_found.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_databaseController.TestDataBaseController.test_get_available_tables_with_bookings.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_tables.TestDataBaseController.test_get_available_tables_with_bookings.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in SystemTest.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in test.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in testBasicController.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in test_case.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in test_case2.py.executor&quot;: &quot;Run&quot;,
     &quot;Python tests.Python tests in test_databaseController.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_tables.py.executor&quot;: &quot;Run&quot;,
     &quot;Python.BasicController.executor&quot;: &quot;Run&quot;,
     &quot;Python.ClientApp.executor&quot;: &quot;Run&quot;,
     &quot;Python.ClientLogin.executor&quot;: &quot;Run&quot;,
@@ -94,7 +112,7 @@
       <recent name="C:\Users\Mario\PycharmProjects\Reservaurante\img" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.RestaurantApp">
     <configuration name="ClientApp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Reservaurante" />
       <option name="ENV_FILES" value="" />
@@ -110,29 +128,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Views/ClientApp/ClientApp.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="DemoData" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Reservaurante" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Data/Demo" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Data/Demo/DemoData.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,7 +182,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in test_databaseController.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_tables.TestDataBaseController.test_get_available_tables_with_bookings" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Reservaurante" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -199,17 +194,33 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_databaseController.py&quot;" />
+      <option name="_new_target" value="&quot;test_tables.TestDataBaseController.test_get_available_tables_with_bookings&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in test_tables.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Reservaurante" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_tables.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.ClientApp" />
         <item itemvalue="Python.RestaurantApp" />
-        <item itemvalue="Python.DemoData" />
-        <item itemvalue="Python tests.Python tests in test_databaseController.py" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.Python tests for test_tables.TestDataBaseController.test_get_available_tables_with_bookings" />
+        <item itemvalue="Python tests.Python tests in test_tables.py" />
+        <item itemvalue="Python.ClientApp" />
       </list>
     </recent_temporary>
   </component>
@@ -269,6 +280,9 @@
       <workItem from="1736612133921" duration="2879000" />
       <workItem from="1736616802732" duration="15000" />
       <workItem from="1736616848786" duration="614000" />
+      <workItem from="1736617594252" duration="519000" />
+      <workItem from="1736618526942" duration="34000" />
+      <workItem from="1736684266580" duration="18939000" />
     </task>
     <task id="LOCAL-00001" summary="version completa">
       <option name="closed" value="true" />
@@ -350,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736616736409</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Version Final Revisada y Especificaciónes Aclaradas.">
+      <option name="closed" value="true" />
+      <created>1736618101171</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1736618101171</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +385,8 @@
     <MESSAGE value="Version final" />
     <MESSAGE value="Version Final Revisada" />
     <MESSAGE value="Version Final Revisada y Actualizada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version Final Revisada y Actualizada" />
+    <MESSAGE value="Version Final Revisada y Especificaciónes Aclaradas." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version Final Revisada y Especificaciónes Aclaradas." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -396,14 +419,18 @@
     <SUITE FILE_PATH="coverage/Reservaurante$ClientRegistration.coverage" NAME="ClientRegistration Coverage Results" MODIFIED="1734104648586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
     <SUITE FILE_PATH="coverage/Reservaurante$RestaurantApp.coverage" NAME="RestaurantApp Coverage Results" MODIFIED="1736616494347" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/RestaurantApp" />
     <SUITE FILE_PATH="coverage/Reservaurante$Inicio.coverage" NAME="Inicio Coverage Results" MODIFIED="1736366898330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
+    <SUITE FILE_PATH="coverage/DemoData_py$ClientLogin.coverage" NAME="ClientLogin Coverage Results" MODIFIED="1736685406483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
     <SUITE FILE_PATH="coverage/Reservaurante$.coverage" NAME=" Coverage Results" MODIFIED="1736548779063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/DemoData_py$main.coverage" NAME="main Coverage Results" MODIFIED="1736617176348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DemoData_py$DemoData.coverage" NAME="DemoData Coverage Results" MODIFIED="1736696044673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Data/Demo" />
+    <SUITE FILE_PATH="coverage/DemoData_py$main.coverage" NAME="main Coverage Results" MODIFIED="1736703276591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Reservaurante$RestaurantRegistration.coverage" NAME="RestaurantRegistration Coverage Results" MODIFIED="1734878429485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
     <SUITE FILE_PATH="coverage/Reservaurante$main.coverage" NAME="main Coverage Results" MODIFIED="1736612033005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Reservaurante$RestaurantApp__1_.coverage" NAME="RestaurantApp (1) Coverage Results" MODIFIED="1736431094906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/RestaurantApp" />
     <SUITE FILE_PATH="coverage/Reservaurante$ClientApp.coverage" NAME="ClientApp Coverage Results" MODIFIED="1736611868453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/ClientApp" />
+    <SUITE FILE_PATH="coverage/DemoData_py$RestaurantApp.coverage" NAME="RestaurantApp Coverage Results" MODIFIED="1736703582189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/RestaurantApp" />
     <SUITE FILE_PATH="coverage/Reservaurante$ClientRestaurantsFrame.coverage" NAME="ClientRestaurantsFrame Coverage Results" MODIFIED="1735838440323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/ClientApp" />
-    <SUITE FILE_PATH="coverage/DemoData_py$ClientApp.coverage" NAME="ClientApp Coverage Results" MODIFIED="1736617147628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/ClientApp" />
+    <SUITE FILE_PATH="coverage/DemoData_py$.coverage" NAME=" Coverage Results" MODIFIED="1736703263019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/DemoData_py$ClientApp.coverage" NAME="ClientApp Coverage Results" MODIFIED="1736700558060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views/ClientApp" />
     <SUITE FILE_PATH="coverage/Reservaurante$ClientLogin.coverage" NAME="ClientLogin Coverage Results" MODIFIED="1736465575026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
     <SUITE FILE_PATH="coverage/Reservaurante$RestaurantLogin.coverage" NAME="RestaurantLogin Coverage Results" MODIFIED="1736466437692" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Views" />
     <SUITE FILE_PATH="coverage/Reservaurante$DemoData.coverage" NAME="DemoData Coverage Results" MODIFIED="1736616488915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Data/Demo" />

@@ -56,8 +56,7 @@ def open_client_login_window(db, event=None):
         if result != True:
             BasicController.show_errors(errors)
         else:
-            window.destroy()
-            client_app(db, dni)
+            window.after(100, lambda: BasicController.complete_destruction_and_transition(window, lambda: client_app(db, dni)))
 
     login_button = ctk.CTkButton(main_frame, text="Iniciar Sesión", command=validation)
     login_button.pack(pady=10)
@@ -70,8 +69,9 @@ def open_client_login_window(db, event=None):
 
     register_label = ctk.CTkLabel(main_frame, text="¿No te has registrado? Regístrate aquí",
                                   text_color="white")
-    register_label.bind("<Button-1>", lambda event: [BasicController.cancel_all_events(window), window.destroy(),
-                                                     open_client_registration_window(db)])
+    register_label.bind("<Button-1>", lambda event: window.after(
+        100,
+        lambda: BasicController.complete_destruction_and_transition(window, lambda: open_client_registration_window(db))))
     register_label.bind("<Enter>", lambda event: register_label.configure(text_color="#1E90FF", cursor="hand2"))
     register_label.bind("<Leave>", lambda event: register_label.configure(text_color="white", cursor=""))
     register_label.pack(pady=5)
@@ -81,14 +81,9 @@ def open_client_login_window(db, event=None):
 
     window.mainloop()
 
-
-
 def open_Inicio_on_close(current_window, db):
     from Views.Inicio import main
-    BasicController.cancel_all_events(current_window)
-    current_window.destroy()
-    main(db)
-
+    current_window.after(100, lambda: BasicController.complete_destruction_and_transition(current_window, lambda: main(db)))
 
 if __name__ == "__main__":
     db = DataBaseController()
@@ -97,5 +92,4 @@ if __name__ == "__main__":
         open_client_login_window(db)
     finally:
         db.close_connection()
-
 

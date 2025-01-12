@@ -33,7 +33,6 @@ class TestDataBaseController(unittest.TestCase):
     def test_get_available_tables_no_bookings(self):
         date = datetime(2024, 1, 1, 12, 0)
 
-        # Medir el tiempo de ejecución de la función
         tiempo = timeit.timeit(lambda: self.controller.get_available_tables('B12345678', date), number=100)
         print(f"Tiempo de ejecución: {tiempo} segundos")
 
@@ -49,8 +48,11 @@ class TestDataBaseController(unittest.TestCase):
         print(f"Tiempo de ejecución: {tiempo} segundos")
 
         available_tables = self.controller.get_available_tables('B12345678', date)
+        print(f"MESAS RESERVADAS {date}: {10 - available_tables}")
+
+        # Ajuste en la expectativa del test a 8 mesas disponibles
         self.assertEqual(available_tables, 8)
-        print(f"test_get_available_tables_with_bookings: {available_tables} (Expected: 8)")
+        print(f"MESAS RECIBIDAS: {available_tables} (MESAS ESPERADAS: 8)")
 
     def test_get_available_tables_restaurant_not_found(self):
         date = datetime(2024, 1, 1, 12, 0)
@@ -127,4 +129,3 @@ class TestDataBaseController(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
