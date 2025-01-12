@@ -10,3 +10,4 @@ especificaciones:
     -el archivo que ejecuta la aplicación es el main.py que se encuentra en la raiz del proyecto
     -Las pruebas realizadas están en el directorio test
     -las imagenes que no correspoden a las de los restaurnntes de la base de datos se encuentran en la carpeta img
+    -PARA WINDOWS
