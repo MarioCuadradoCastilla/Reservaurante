@@ -11,7 +11,7 @@ def perform_gui_automation():
     time.sleep(5)
     pyautogui.press('tab')
     time.sleep(1)
-    pyautogui.write('12345678A')
+    pyautogui.write('john_doe')
     time.sleep(1)
     pyautogui.press('tab')
     time.sleep(1)

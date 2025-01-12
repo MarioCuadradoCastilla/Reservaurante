@@ -41,17 +41,18 @@ class TestDataBaseController(unittest.TestCase):
         print(f"test_get_available_tables_no_bookings: {available_tables} (Expected: 10)")
 
     def test_get_available_tables_with_bookings(self):
-        date = datetime(2024, 1, 15, 14, 30)
+        date = datetime(2025, 1, 15, 14, 30)
 
         # Medir el tiempo de ejecución de la función
-        tiempo = timeit.timeit(lambda: self.controller.get_available_tables('B12345678', date), number=100)
-        print(f"Tiempo de ejecución: {tiempo} segundos")
+        #tiempo = timeit.timeit(lambda: self.controller.get_available_tables('B12345678', date), number=100)
+        #print(f"Tiempo de ejecución: {tiempo} segundos")
 
+        # Llamar a la función solo una vez y guardar el resultado
         available_tables = self.controller.get_available_tables('B12345678', date)
         print(f"MESAS RESERVADAS {date}: {10 - available_tables}")
 
-        # Ajuste en la expectativa del test a 8 mesas disponibles
-        self.assertEqual(available_tables, 8)
+        # La expectativa correcta es 8 mesas disponibles
+        self.assertEqual(8, available_tables)
         print(f"MESAS RECIBIDAS: {available_tables} (MESAS ESPERADAS: 8)")
 
     def test_get_available_tables_restaurant_not_found(self):
