@@ -132,7 +132,7 @@ class ClientRestaurantsFrame(ctk.CTkFrame):
         self.current_municipality = self.municipality_var.get()
         self.current_sort_option = self.sort_var.get()
         self.load_filtered_restaurants()
-        self.scrollable_frame._parent_canvas.yview_moveto(0)  # Mueve la barra de desplazamiento al inicio
+        self.scrollable_frame._parent_canvas.yview_moveto(0)
         self.enable_scroll()
         window.destroy()
 

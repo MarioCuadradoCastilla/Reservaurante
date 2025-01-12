@@ -18,7 +18,6 @@ def open_restaurant_registration_window(db, event=None):
     ctk.set_default_color_theme("blue")
     BasicController.center_window(window, 600, 420)
 
-    # Frame principal
     main_frame = ctk.CTkFrame(window, corner_radius=10)
     main_frame.pack(pady=20, padx=20, fill="both", expand=True, side="left")
 
@@ -154,7 +153,6 @@ def open_restaurant_registration_window(db, event=None):
                     entry.delete(0, "end")
                     entry.insert(0, "")
 
-                # Resetear el combobox de municipio
                 municipality_combobox.set("")
         else:
             BasicController.show_errors(errores)

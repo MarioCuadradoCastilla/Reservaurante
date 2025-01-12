@@ -1,9 +1,9 @@
 import os
-import shutil
+
 from tkinter import filedialog
 from PIL import Image as PILImage
 import customtkinter as ctk
-from Controllers import DataBaseController, BasicController
+from Controllers import  BasicController
 
 class ImagesFrame(ctk.CTkFrame):
     def __init__(self, parent, db, CIF):
@@ -26,7 +26,6 @@ class ImagesFrame(ctk.CTkFrame):
         )
         self.title.grid(row=0, column=0, pady=(20, 10))
 
-        # Frame para las flechas, imagen y botones
         self.image_navigation_frame = ctk.CTkFrame(self, fg_color="#222222", corner_radius=10)
         self.image_navigation_frame.grid(row=1, column=0, padx=20, pady=10, sticky="nsew")
         self.image_navigation_frame.grid_columnconfigure(1, weight=1)

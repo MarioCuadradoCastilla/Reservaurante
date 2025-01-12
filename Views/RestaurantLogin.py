@@ -59,7 +59,6 @@ def open_restaurant_login_window(db, event=None):
     login_button = ctk.CTkButton(main_frame, text="Iniciar Sesión", command=validation)
     login_button.pack(pady=10)
 
-    # Añadir la funcionalidad para que se pulse el botón de inicio de sesión al presionar Enter
     cif_entry.bind("<Return>", lambda event: validation())
     password_entry.bind("<Return>", lambda event: validation())
 

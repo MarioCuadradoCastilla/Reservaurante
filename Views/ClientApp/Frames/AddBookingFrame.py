@@ -22,7 +22,6 @@ class BookingWindow:
         self._init_ui()
 
     def _init_ui(self):
-        # Title
         title = ctk.CTkLabel(
             self.window,
             text="Nueva Reserva",
@@ -30,7 +29,6 @@ class BookingWindow:
         )
         title.pack(pady=20)
 
-        # Tables input
         tables_frame = ctk.CTkFrame(self.window)
         tables_frame.pack(fill="x", padx=20, pady=10)
 
@@ -56,17 +54,16 @@ class BookingWindow:
         time_label = ctk.CTkLabel(time_frame, text="Hora:")
         time_label.pack(side="left", padx=5)
 
-        hour_spinbox = Spinbox(time_frame, from_=8, to=22, wrap=True, width=3,
+        hour_spinbox = Spinbox(time_frame, from_=8, to=22, wrap=True, width=3,state="readonly",
                                font=("Helvetica", 14), format="%02.0f")
         hour_spinbox.pack(side="left", padx=5)
 
-        minute_spinbox = Spinbox(time_frame, from_=0, to=59, wrap=True, width=3,
+        minute_spinbox = Spinbox(time_frame, from_=0, to=59, wrap=True, width=3,state="readonly",
                                  font=("Helvetica", 14), format="%02.0f")
         minute_spinbox.pack(side="left", padx=5)
 
         self.time_spinboxes = (hour_spinbox, minute_spinbox)
 
-        # Submit button
         submit_btn = ctk.CTkButton(
             self.window,
             text="Confirmar Reserva",

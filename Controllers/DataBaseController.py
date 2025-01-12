@@ -179,8 +179,8 @@ class DataBaseController:
         self.cursor.execute("SELECT username FROM Client WHERE dni = ?", (dni,))
         result = self.cursor.fetchone()
         if result:
-            return result[0]  # Devuelve el primer elemento de la tupla, que debería ser el nombre de usuario
-        return None  # Devuelve None si no se encuentra el usuario
+            return result[0]
+        return None
 
     def obtain_dni_by_username(self, username):
         cursor = self.connection.cursor()

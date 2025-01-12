@@ -1,5 +1,4 @@
 import customtkinter as ctk
-import os
 from Controllers import DataBaseController, BasicController
 from Views.ClientApp.ClientApp import main as client_app
 from Views.ClientRegistration import open_client_registration_window
@@ -63,7 +62,6 @@ def open_client_login_window(db, event=None):
     login_button.bind("<Enter>", lambda event: login_button.configure(cursor="hand2"))
     login_button.bind("<Leave>", lambda event: login_button.configure(cursor=""))
 
-    # Añadir la funcionalidad para que se pulse el botón de inicio de sesión al presionar Enter
     username_entry.bind("<Return>", lambda event: validation())
     password_entry.bind("<Return>", lambda event: validation())
 

@@ -141,7 +141,6 @@ def open_client_registration_window(db, event=None):
                 BasicController.usage_window("Registro exitoso","Registro Completado")
                 entries = [dni_entry, name_entry, surname_entry, phone_entry, username_entry, password_entry]
 
-                # Vaciar todas las entradas usando un bucle
                 for entry in entries:
                     entry.delete(0, "end")
                     entry.insert(0, "")

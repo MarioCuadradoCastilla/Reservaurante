@@ -20,7 +20,7 @@ class ClientBookingsFrame(ctk.CTkFrame):
         self.bookings_frame.grid_columnconfigure(0, weight=1)
 
         self.load_bookings()
-        self.enable_scroll()  # Asegúrate de habilitar el desplazamiento aquí
+        self.enable_scroll()
 
     def _create_title(self):
         self.title = ctk.CTkLabel(
@@ -114,7 +114,7 @@ class ClientBookingsFrame(ctk.CTkFrame):
         try:
             if self.db.delete_booking(booking_id):
                 BasicController.usage_window("Éxito", "Reserva cancelada correctamente")
-                self.load_bookings()  # Refresh the bookings list
+                self.load_bookings()
             else:
                 raise Exception("No se pudo cancelar la reserva")
         except Exception as e:

@@ -34,7 +34,7 @@ class ReviewWindow:
 
         self.rating_combobox = ctk.CTkOptionMenu(rating_frame, values=["1", "2", "3", "4", "5"])
         self.rating_combobox.pack(side="right", expand=True, fill="x", padx=5)
-        self.rating_combobox.set("1")  # Default value
+        self.rating_combobox.set("1")
 
         comment_label = ctk.CTkLabel(self.window, text="Comentario:")
         comment_label.pack(padx=20, pady=(10, 5), anchor="w")

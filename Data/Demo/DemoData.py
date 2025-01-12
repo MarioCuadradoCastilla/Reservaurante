@@ -12,7 +12,7 @@ def load_demo_data(db_controller):
     db_controller.cursor.execute("DELETE FROM Restaurant;")
     db_controller.cursor.execute("DELETE FROM Bookings;")
     db_controller.cursor.execute("DELETE FROM Reviews;")
-    # Demo Clients
+
     clients = [
         Client("12345678A", "John", "Doe", 123456789, "Pass123@", "john_doe"),
         Client("87654321B", "Jane", "Smith", 987654321, "Smith2#", "jane_smith"),
@@ -62,7 +62,6 @@ def load_demo_data(db_controller):
     for restaurant in restaurants:
         db_controller.add_restaurant(restaurant)
 
-    # Demo Bookings con fechas específicas
     bookings = [
         Booking(1, "12345678A", "B12345678", 2, get_restaurant_address_by_cif("B12345678"),
                 create_datetime(2025, 1, 15, 14, 30)),
@@ -112,34 +111,27 @@ def load_demo_data(db_controller):
     for booking in bookings:
         db_controller.add_booking(booking)
 
-    # Demo Reviews con fechas específicas
     reviews = [
-        # Reseñas para "El Buen Lugar"
         Review("12345678A", "john_doe", "B12345678", 4.5, "¡Excelente comida y servicio!", create_datetime(2023, 12, 1, 22, 0)),
         Review("33333333E", "carol_b", "B12345678", 4.2, "Una velada encantadora", create_datetime(2024, 1, 10, 21, 0)),
         Review("55555555G", "emma_d", "B12345678", 4.0, "Buen lugar para compartir", create_datetime(2024, 2, 15, 20, 0)),
 
-        # Reseñas para "Sabores Únicos"
         Review("87654321B", "jane_smith", "B23456789", 4.0, "Buen ambiente", create_datetime(2023, 12, 2, 23, 0)),
         Review("55555555G", "emma_d", "B23456789", 3.8, "Buena relación calidad-precio", create_datetime(2024, 1, 2, 22, 0)),
         Review("12345678A", "john_doe", "B23456789", 4.1, "Buena comida y ambiente agradable", create_datetime(2024, 3, 5, 14, 0)),
 
-        # Reseñas para "Delicias del Valle"
         Review("11111111C", "alice_j", "B34567890", 4.8, "Experiencia increíble", create_datetime(2023, 12, 3, 22, 30)),
         Review("66666666H", "frank_t", "B34567890", 4.6, "¡Sabores increíbles!", create_datetime(2024, 1, 3, 21, 30)),
         Review("87654321B", "jane_smith", "B34567890", 4.2, "Un lugar especial", create_datetime(2024, 3, 6, 20, 30)),
 
-        # Reseñas para "La Casa del Sabor"
         Review("22222222D", "bob_w", "B45678901", 3.5, "Buena comida pero servicio lento", create_datetime(2023, 12, 4, 21, 0)),
         Review("77777777I", "grace_a", "B45678901", 4.3, "Personal amable y ambiente acogedor", create_datetime(2024, 1, 4, 22, 30)),
         Review("11111111C", "alice_j", "B45678901", 4.0, "Buena opción para cenas familiares", create_datetime(2024, 3, 7, 20, 0)),
 
-        # Reseñas para "Sabores del Patrimonio"
         Review("33333333E", "carol_b", "B56789012", 5.0, "¡Perfecto en todo!", create_datetime(2023, 12, 5, 22, 30)),
         Review("88888888J", "henry_m", "B56789012", 4.7, "¡Volveré seguro!", create_datetime(2024, 1, 5, 23, 0)),
         Review("22222222D", "bob_w", "B56789012", 4.5, "Una experiencia memorable", create_datetime(2024, 3, 8, 21, 0)),
 
-        # Más reseñas adicionales por cliente para cumplir requisitos
         Review("44444444F", "david_m", "B67890123", 4.2, "Gran ambiente y buena comida", create_datetime(2024, 2, 15, 22, 0)),
         Review("44444444F", "david_m", "B78901234", 4.4, "Servicio excelente y menú innovador", create_datetime(2024, 3, 11, 20, 30)),
         Review("88888888J", "henry_m", "B90123456", 4.8, "Cocina increíble", create_datetime(2024, 3, 13, 22, 30))

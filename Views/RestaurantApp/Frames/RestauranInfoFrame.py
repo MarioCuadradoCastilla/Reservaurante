@@ -292,7 +292,7 @@ class InfoFrame(ctk.CTkFrame):
         self.entries['municipality'].tkraise()
 
     def guardar_cambios(self):
-        global original_restaurant_data  # Asegúrate de declarar la variable global aquí
+        global original_restaurant_data
         errors = []
         try:
             if not self._has_changes():
@@ -305,7 +305,6 @@ class InfoFrame(ctk.CTkFrame):
             if not restaurant:
                 raise Exception("Restaurant not found")
 
-            # Guarda el valor del combobox si está en modo de edición
             if self.entries['municipality'].winfo_viewable():
                 new_value = self.entries['municipality'].get()
                 if new_value != original_restaurant_data['municipality']:
@@ -335,7 +334,7 @@ class InfoFrame(ctk.CTkFrame):
                     'description': str(restaurant.description)
                 }
                 BasicController.usage_window("Éxito", "Cambios guardados correctamente")
-                self.enable_combobox_scroll()  # Habilitar nuevamente el scroll del combobox
+                self.enable_combobox_scroll()
             else:
                 raise Exception("Failed to update restaurant")
         except Exception as e:

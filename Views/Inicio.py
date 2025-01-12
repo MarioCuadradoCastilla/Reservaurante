@@ -2,7 +2,7 @@ import customtkinter as ctk
 from PIL import Image
 from Views.RestaurantLogin import open_restaurant_login_window
 from Views.ClientLogin import open_client_login_window
-from Controllers import DataBaseController, BasicController
+from Controllers import BasicController
 import os
 
 def main(db):
@@ -53,7 +53,6 @@ def main(db):
     register_client_label.bind("<Button-1>", lambda event: window.after(100, lambda: BasicController.complete_destruction_and_transition(window, lambda: open_client_login_window(db))))
     register_client_label.bind("<Enter>", lambda event: register_client_label.configure(text_color="#1E90FF", cursor="hand2"))
     register_client_label.bind("<Leave>", lambda event: register_client_label.configure(text_color="white", cursor=""))
-    # Usamos grid en lugar de pack
     register_client_label.grid(row=2, column=0, pady=1, sticky="n")
 
     register_restaurant_label = ctk.CTkLabel(

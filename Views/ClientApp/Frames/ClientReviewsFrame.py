@@ -1,6 +1,9 @@
 import customtkinter as ctk
 from datetime import datetime
 
+from Controllers import BasicController
+
+
 class ClientReviewsFrame(ctk.CTkFrame):
     def __init__(self, parent, db, dni):
         super().__init__(parent)
@@ -91,6 +94,7 @@ class ClientReviewsFrame(ctk.CTkFrame):
 
     def delete_review(self, review_id):
         if self.db.delete_review(review_id):
+            BasicController.usage_window("Exito","Reseña borrada")
             self.load_reviews()
 
 

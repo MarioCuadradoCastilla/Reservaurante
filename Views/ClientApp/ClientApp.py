@@ -3,10 +3,9 @@ from Controllers import DataBaseController, BasicController
 from Views.ClientApp.Frames.ClientInfoFrame import ClientInfoFrame
 from Views.ClientApp.Frames.ClientBookingFrame import ClientBookingsFrame
 from Views.ClientApp.Frames.ClientRestaurantsFrame import ClientRestaurantsFrame
-from Views.ClientApp.Frames.AddBookingFrame import BookingWindow  # Importa la clase BookingWindow
-from Views.ClientApp.Frames.ClientReviewsFrame import ClientReviewsFrame  # Importa la clase ClientReviewsFrame
+from Views.ClientApp.Frames.AddBookingFrame import BookingWindow
+from Views.ClientApp.Frames.ClientReviewsFrame import ClientReviewsFrame
 
-# Constants
 SIDEBAR_WIDTH = 200
 STANDARD_PAD = 20
 TITLE_FONT = ("Helvetica", 22)
@@ -14,7 +13,6 @@ SUBTITLE_FONT = ("Helvetica", 30)
 NORMAL_FONT = ("Helvetica", 14)
 SIDEBAR_BUTTON_HEIGHT = 70
 
-# Store original client data
 original_client_data = {
     'dni': '',
     'name': '',
@@ -39,7 +37,6 @@ class Sidebar(ctk.CTkFrame):
         )
         self.title.grid(row=0, column=0, padx=STANDARD_PAD, pady=STANDARD_PAD)
 
-        # Define buttons with their IDs and display text
         buttons = [
             ("info", "Mi Información", 1),
             ("bookings", "Mis Reservas", 2),
@@ -113,16 +110,16 @@ class MainWindow:
         self.show_frame("info")
 
     def show_frame(self, frame_name):
-        # Deshabilitar el desplazamiento en todos los frames primero
+
         for frame in self.frames.values():
             if hasattr(frame, 'disable_scroll'):
                 frame.disable_scroll()
 
-        # Ocultar todos los frames
+
         for frame in self.frames.values():
             frame.grid_forget()
 
-        # Mostrar el frame deseado y habilitar su desplazamiento
+
         if frame_name in self.frames:
             self.frames[frame_name].grid(row=0, column=0, sticky="nsew")
             if hasattr(self.frames[frame_name], "enable_scroll"):
@@ -154,5 +151,5 @@ def main(db, dni):
 
 if __name__ == "__main__":
     db = DataBaseController()
-    dni = "12345678A"  # Set your test DNI here
+    dni = "12345678A"
     main(db, dni)

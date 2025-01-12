@@ -115,7 +115,6 @@ class RestaurantFrame(ctk.CTkFrame):
         self.load_images()
 
     def load_images(self):
-        """Carga las imágenes del restaurante desde la base de datos y actualiza la vista."""
         self.images = [image[0] for image in self.db.get_restaurant_images(self.restaurant_data['cif'])]
         self.current_index = 0
         if self.images:

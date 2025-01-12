@@ -40,7 +40,7 @@ class BasicController:
         error_label.pack(pady=10)
 
 
-        scrollable_frame = ctk.CTkScrollableFrame(error_window, width=320, height=230)  # Ajustar el tamaño si es necesario
+        scrollable_frame = ctk.CTkScrollableFrame(error_window, width=320, height=230)
         scrollable_frame.pack(pady=1, padx=10, fill="both", expand=True)
 
 
@@ -70,7 +70,6 @@ class BasicController:
 
             close_button = ctk.CTkButton(exito_window, text="Cerrar",command=lambda: [exito_window.grab_release(), exito_window.destroy()])
             close_button.pack(pady=10)
-
 
     @staticmethod
     def complete_destruction_and_transition(window, callback):
